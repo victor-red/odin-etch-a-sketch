@@ -2,7 +2,7 @@ const body = document.body;
 const container = document.createElement("div");
 let n = 16
 
-
+container.classList.add("container");
 body.appendChild(container);
 
 for(let x = 0; x < n; x++){
@@ -15,5 +15,14 @@ for(let x = 0; x < n; x++){
         gridContainer.appendChild(gridDiv);
     }
 }
+
+const grids = document.querySelectorAll(".gridDiv");
+
+grids.forEach((grid) =>{
+    grid.addEventListener("click", () =>{
+        grid.classList.add("hover")
+    })
+} )
+
 
 
