@@ -1,12 +1,17 @@
-.container{
+body{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
-.gridContainer{
-    display : flex;
+.container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 500px;
+    width: 500px;
+    flex-wrap: wrap;
 }
 
 .gridDiv{
@@ -15,8 +20,6 @@
     border: solid;
     border-color: black;
     border-width: 1px;
-    height: 20px;
-    width: 20px;
 }
 
 .gridDivHover{
@@ -25,8 +28,6 @@
     border: solid;
     border-color: black;
     border-width: 1px;
-    height: 20px;
-    width: 20px;
 }
 
 .newGridBtn{

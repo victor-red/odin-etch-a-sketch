@@ -2,27 +2,29 @@ const body = document.body;
 const container = document.createElement("div");
 const newGridBtn = document.createElement("button");
 
+body.appendChild(newGridBtn);
 container.classList.add("container");
 body.appendChild(container);
-container.appendChild(newGridBtn);
 newGridBtn.classList.add("newGridBtn")
 newGridBtn.textContent = "Create new grid";
 
 function createGrid(n){
-    for(let x = 0; x < n; x++){
-        const gridContainer = document.createElement("div");
-        container.appendChild(gridContainer);
-        gridContainer.classList.add("gridContainer");
-        for (let i = 0; i < n; i++){
-            const gridDiv = document.createElement("div");
-            gridDiv.classList.add("gridDiv");
-            gridContainer.appendChild(gridDiv);
+    gridHeight = container.style.height;
+    gridWidth = container.style.width;
+    divSize = (500 - (n * 2)) / n + 'px';
+    gridPixels = n * n;
+    for (let i = 0; i < gridPixels; i++){
+        const gridDiv = document.createElement("div");
+        gridDiv.classList.add("gridDiv");
+        gridDiv.style.height = divSize;
+        gridDiv.style.width = divSize;
+        container.appendChild(gridDiv);
         }
-    }};
+    };
 
 function deleteGrid(){
-    gridContainers = document.querySelectorAll(".gridContainer");
-    gridContainers.forEach(gridContainer => container.removeChild(gridContainer));
+    gridDivs = document.querySelectorAll(".gridDiv");
+    gridDivs.forEach(gridDiv => container.removeChild(gridDiv));
 }
 
 function addHoverEffect(){
@@ -35,7 +37,7 @@ function addHoverEffect(){
 
 function createNewGrid(){
     let n = prompt("Enter the size of your grid (max 100): ");
-    if (n == 0){
+    if (n == 0 || n == "" || n == null){
         alert("Invalid value for size.")}
     else if (n <= 100 && n!=0){
         deleteGrid();
